@@ -1,4 +1,4 @@
-## Set up Python and Python with Selenium
+## Set up Python
 
 #### - Step 1: 
 Install python
