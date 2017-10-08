@@ -14,8 +14,8 @@ After the download is complete double click on the msi to install Python 2.7.13 
 
 #### - Step 3: 
 Verification
-Open command prompt and type the below command
-```sh
+Open command prompt and type the below command. It should display the python version downloaded.
+```shIt 
 
 > python --version
 
