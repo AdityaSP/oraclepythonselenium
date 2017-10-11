@@ -1,5 +1,9 @@
 ''' My Bank software'''
 
+
+class InsufficientBalanceError(Exception):
+	pass
+    
 class Account(object):
     def __init__(self, n, b, t):
         self.n = n
@@ -7,9 +11,11 @@ class Account(object):
         self.t = t
     def debit(self, amount):
         self.b -= amount
+        return self
         
     def credit(self, amount):
         self.b += amount
+        return self
 
 class CurrentAccount(Account):
     ''' Current Account Class handles CA'''
@@ -30,6 +36,7 @@ class SavingsAccount(Account):
         
     def debit(self, amount):
         if self.b < amount :
-            raise ValueError("Insufficient Balance")
+            raise InsufficientBalanceError("Insufficient Balance")
         else :    
             Account.debit(self,amount)
+        return self
