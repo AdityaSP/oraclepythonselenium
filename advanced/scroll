@@ -35,5 +35,3 @@ driver.execute_script("arguments[0].scrollIntoView(true);", element)
 
 time.sleep(10)
 driver.quit()
-
-driver.save_screenshot("a")
