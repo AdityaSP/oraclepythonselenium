@@ -36,4 +36,11 @@ for handle in handles:
 
 driver.switch_to.window(primary_handle)
 time.sleep(5)
+driver.find_element_by_partial_link_text('alert').click()
+alert = driver.switch_to.alert
+
+print alert.text
+time.sleep(5)
+alert.accept()
+
 driver.quit()
