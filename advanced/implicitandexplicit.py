@@ -46,12 +46,12 @@ date = driver.find_element_by_xpath("//div[contains(@class, 'dateFilter hasDatep
 date.click()
 # click on search
 # searchBtn
-search = driver.find_elements_by_id('searchBtn')
+search = driver.find_element_by_id('searchBtn')
 search.click()
 
 # click on 1 stop
 # stops_1_dep
-onestop= driver.find_elements_by_id('stops_1_dep')
+onestop= driver.find_element_by_id('stops_1_dep')
 onestop.click()
 
 
