@@ -16,6 +16,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import *
 # open make mytrip
 driver.get("https://www.makemytrip.com/")
+driver.implicitly_wait(0.5)
 
 # implicit wait
 
@@ -51,9 +52,19 @@ search.click()
 
 # click on 1 stop
 # stops_1_dep
+
+wait = WebDriverWait(driver,20,poll_frequency=1,ignored_exceptions=[
+                    NoSuchElementException,
+                    ElementNotVisibleException,
+                    ElementNotSelectableException
+                    ])
+
+onestop = wait.until(EC.element_to_be_clickable((By.ID,'stops_1_dep'))) 
 onestop= driver.find_element_by_id('stops_1_dep')
 onestop.click()
 
+#airindia = wait.until(EC.element_to_be_clickable((By.XPATH, "//div[@id='aln_AI_dep']/span[contains(@class, 'checkbox_state pull-right')]")))
+#airindia.click()
 
 time.sleep(10)
 driver.quit()
