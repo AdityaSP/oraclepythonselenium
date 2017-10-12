@@ -1,0 +1,7 @@
+from drivers import driver
+import time
+driver.get("http://localhost/mystore")
+
+# window scroll
+
+# scroll by element
