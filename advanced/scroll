@@ -1,7 +1,39 @@
+'''
+Created on Oct 11, 2017
+
+@author: Dell lap
+'''
 from drivers import driver
 import time
 driver.get("http://localhost/mystore")
 
-# window scroll
+searchbox = driver.find_element_by_name("search")
+searchbox.send_keys("MacBook")
 
-# scroll by element
+searchbutton = driver.find_element_by_xpath('//div[@id="search"]//button')
+searchbutton.click()
+
+results = driver.find_element_by_xpath('//div[contains(text(),"Showing")]')
+print results.text
+#Showing 1 to 3 of 3 (1 Pages)
+
+import re
+print re.findall(r'Showing (\d+) to (\d+) of (\d+)', results.text)[0][2]
+
+#driver.save_screenshot('D:\\selenium\\searchshot.png')
+
+#driver.execute_script("alert('Hi There');")
+
+driver.execute_script("window.scrollBy(0, 1000);")
+time.sleep(5)
+
+#driver.execute_script("window.scrollBy(0, -1000);")
+#time.sleep(5)
+
+element = driver.find_element_by_xpath("//h2")
+driver.execute_script("arguments[0].scrollIntoView(true);", element)
+
+time.sleep(10)
+driver.quit()
+
+driver.save_screenshot("a")
