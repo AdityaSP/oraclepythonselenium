@@ -1,6 +1,10 @@
 '''
-Created on Oct 11, 2017
+Created on Oct 12, 2017
 
+@author: Dell lap
+'''
+'''
+Created on Oct 11, 2017
 @author: Dell lap
 '''
 
@@ -9,14 +13,27 @@ import time
 driver.get("http://localhost/seleniumtrials/formelements.html")
 # get the current window handle
 
-driver.find_element_by_xpath("//button[text()='Try it']").click()
+print driver.title
 
 #get all the handles
+primary_handle = driver.current_window_handle
+print primary_handle
 
+
+driver.find_element_by_xpath("//button[text()='Try it']").click()
+
+afterclick = driver.current_window_handle
+print afterclick
+
+handles = driver.window_handles
 #switch to the newly created handle
+for handle in handles:
+    if handle != primary_handle:
+        driver.switch_to.window(handle)
+        driver.maximize_window()
+        time.sleep(5)
+        driver.close()
 
-# maximize and close 
-
-# switch back to original handle
+driver.switch_to.window(primary_handle)
 time.sleep(5)
 driver.quit()
