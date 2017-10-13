@@ -1,0 +1,8 @@
+1. standalone server
+java -jar selenium-server-standalone-3.6.0.jar 
+
+2. As a grid
+java -jar selenium-server-standalone-3.6.0.jar -role hub
+
+3. Node connect
+java -jar selenium-server-standalone-3.6.0.jar -role node -hub http://localhost:4444/grid/register
