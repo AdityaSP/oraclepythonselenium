@@ -6,3 +6,19 @@ java -jar selenium-server-standalone-3.6.0.jar -role hub
 
 3. Node connect
 java -jar selenium-server-standalone-3.6.0.jar -role node -hub http://localhost:4444/grid/register
+
+4. Connect to selenium grid to execute
+
+'''
+Created on Oct 12, 2017
+
+@author: Dell lap
+'''
+from selenium import webdriver
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+driver = webdriver.Remote(
+   command_executor='http://127.0.0.1:4444/wd/hub',
+   desired_capabilities=DesiredCapabilities.CHROME)
+
+driver.get("http://www.google.com")
+driver.maximize_window()
